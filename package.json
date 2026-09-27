@@ -1,0 +1,56 @@
+{
+  "author": {
+    "name": "nativeship",
+    "url": "https://github.com/nativeship"
+  },
+  "description": "Store, manage, search, and recall long-term contextual memories, user profiles, and documents with Supermemory",
+  "devDependencies": {
+    "@n8n/node-cli": "0.41.2",
+    "@types/node": "22.15.29",
+    "eslint": "9.29.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": "\u003e=22.22.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nativeship/n8n-nodes-supermemory",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "n8n": {
+    "credentials": [
+      "dist/credentials/SupermemoryApi.credentials.js"
+    ],
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Supermemory/Supermemory.node.js"
+    ],
+    "strict": true
+  },
+  "name": "@nativeship/n8n-nodes-supermemory",
+  "nativeShip": {
+    "artifactSha256": "f694130d9783710c6606e6defaf09be08908ada292c37b7fe77905209a939417"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativeship/n8n-nodes-supermemory.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix"
+  },
+  "version": "1.0.0"
+}

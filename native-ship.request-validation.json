@@ -1,0 +1,7523 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "operationId": "deleteV3ConnectionsByConnectionId",
+      "method": "DELETE",
+      "path": "/v3/connections/{connectionId}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "connectionId",
+          "inputName": "connectionId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "deleteDocuments",
+          "inputName": "deleteDocuments",
+          "sample": "true",
+          "default": "true",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "provider",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id",
+          "provider"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Connection not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV3ConnectionsByConnectionId",
+        "method": "DELETE",
+        "path": "/v3/connections/{connectionId}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v3/connections/{{$parameter[\"connectionId\"]}}",
+          "query": [
+            {
+              "name": "deleteDocuments",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "provider",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id",
+            "provider"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Connection not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "deleteV3ConnectionsByProvider",
+      "method": "DELETE",
+      "path": "/v3/connections/{provider}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "provider",
+          "inputName": "provider",
+          "sample": "notion",
+          "enum": [
+            "notion",
+            "google-drive",
+            "onedrive",
+            "gmail",
+            "github",
+            "web-crawler",
+            "s3",
+            "granola"
+          ],
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_123",
+              "project_123"
+            ],
+            "example": [
+              "user_123",
+              "project_123"
+            ],
+            "type": "array",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "provider",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id",
+          "provider"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Provider not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV3ConnectionsByProvider",
+        "method": "DELETE",
+        "path": "/v3/connections/{provider}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v3/connections/{{$parameter[\"provider\"]}}",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "provider",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id",
+            "provider"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Provider not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getV3ConnectionsByConnectionIdResources",
+      "method": "GET",
+      "path": "/v3/connections/{connectionId}/resources",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "connectionId",
+          "inputName": "connectionId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "parent_id",
+          "inputName": "parent_id",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "per_page",
+          "inputName": "per_page",
+          "sample": 30,
+          "default": 30,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "resources",
+            "type": "array"
+          },
+          {
+            "name": "total_count",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "resources",
+          "total_count"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Connection missing refresh token"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Connection not found"
+        },
+        {
+          "status": "501",
+          "title": "Provider does not support resource fetching"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getV3ConnectionsByConnectionIdResources",
+        "method": "GET",
+        "path": "/v3/connections/{connectionId}/resources",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "GET",
+          "url": "=/v3/connections/{{$parameter[\"connectionId\"]}}/resources",
+          "query": [
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "parent_id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "per_page",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "resources",
+              "type": "array"
+            },
+            {
+              "name": "total_count",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "resources",
+            "total_count"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Connection missing refresh token"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Connection not found"
+          },
+          {
+            "status": "501",
+            "title": "Provider does not support resource fetching"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsByConnectionIdConfigure",
+      "method": "POST",
+      "path": "/v3/connections/{connectionId}/configure",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "connectionId",
+          "inputName": "connectionId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "resources",
+            "inputName": "resources",
+            "sample": [
+              {}
+            ],
+            "type": "array",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "success",
+            "type": "boolean"
+          },
+          {
+            "name": "webhooksRegistered",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "message",
+          "success",
+          "webhooksRegistered"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Connection missing refresh token"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Connection not found"
+        },
+        {
+          "status": "501",
+          "title": "Provider does not support resource configuration"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsByConnectionIdConfigure",
+        "method": "POST",
+        "path": "/v3/connections/{connectionId}/configure",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/{{$parameter[\"connectionId\"]}}/configure",
+          "query": [],
+          "body": [
+            {
+              "name": "resources",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "success",
+              "type": "boolean"
+            },
+            {
+              "name": "webhooksRegistered",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "message",
+            "success",
+            "webhooksRegistered"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Connection missing refresh token"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Connection not found"
+          },
+          {
+            "status": "501",
+            "title": "Provider does not support resource configuration"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter resources"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsByProvider",
+      "method": "POST",
+      "path": "/v3/connections/{provider}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "provider",
+          "inputName": "provider",
+          "sample": "notion",
+          "enum": [
+            "notion",
+            "google-drive",
+            "onedrive",
+            "gmail",
+            "github",
+            "web-crawler",
+            "s3",
+            "granola"
+          ],
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "value-id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "documentLimit",
+            "inputName": "documentLimit",
+            "sample": 2,
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {},
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "redirectUrl",
+            "inputName": "redirectUrl",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "authLink",
+            "type": "string"
+          },
+          {
+            "name": "expiresIn",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "redirectsTo",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "authLink",
+          "expiresIn",
+          "id",
+          "redirectsTo"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsByProvider",
+        "method": "POST",
+        "path": "/v3/connections/{provider}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/{{$parameter[\"provider\"]}}",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documentLimit",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "redirectUrl",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "authLink",
+              "type": "string"
+            },
+            {
+              "name": "expiresIn",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "redirectsTo",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "authLink",
+            "expiresIn",
+            "id",
+            "redirectsTo"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter metadata"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsByProviderConnection",
+      "method": "POST",
+      "path": "/v3/connections/{provider}/connection",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "provider",
+          "inputName": "provider",
+          "sample": "notion",
+          "enum": [
+            "notion",
+            "google-drive",
+            "onedrive",
+            "gmail",
+            "github",
+            "web-crawler",
+            "s3",
+            "granola"
+          ],
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_123",
+              "project_123"
+            ],
+            "example": [
+              "user_123",
+              "project_123"
+            ],
+            "type": "array",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "containerTags",
+            "type": "array"
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "documentLimit",
+            "type": "number"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "expiresAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "lastSyncRun",
+            "type": "object"
+          },
+          {
+            "name": "metadata",
+            "type": "object"
+          },
+          {
+            "name": "provider",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "containerTags",
+          "createdAt",
+          "documentLimit",
+          "email",
+          "expiresAt",
+          "id",
+          "lastSyncRun",
+          "metadata",
+          "provider"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Connection not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsByProviderConnection",
+        "method": "POST",
+        "path": "/v3/connections/{provider}/connection",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/{{$parameter[\"provider\"]}}/connection",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "containerTags",
+              "type": "array"
+            },
+            {
+              "name": "createdAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "documentLimit",
+              "type": "number"
+            },
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "expiresAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "lastSyncRun",
+              "type": "object"
+            },
+            {
+              "name": "metadata",
+              "type": "object"
+            },
+            {
+              "name": "provider",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "containerTags",
+            "createdAt",
+            "documentLimit",
+            "email",
+            "expiresAt",
+            "id",
+            "lastSyncRun",
+            "metadata",
+            "provider"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Connection not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsByProviderDocuments",
+      "method": "POST",
+      "path": "/v3/connections/{provider}/documents",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "provider",
+          "inputName": "provider",
+          "sample": "notion",
+          "enum": [
+            "notion",
+            "google-drive",
+            "onedrive",
+            "gmail",
+            "github",
+            "web-crawler",
+            "s3",
+            "granola"
+          ],
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_123",
+              "project_123"
+            ],
+            "example": [
+              "user_123",
+              "project_123"
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "createdAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "summary",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "format": "datetime"
+          }
+        ],
+        "simplifiedFields": [
+          "createdAt",
+          "id",
+          "status",
+          "summary",
+          "title",
+          "type",
+          "updatedAt"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Provider not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsByProviderDocuments",
+        "method": "POST",
+        "path": "/v3/connections/{provider}/documents",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/{{$parameter[\"provider\"]}}/documents",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "updatedAt",
+              "type": "string",
+              "format": "datetime"
+            }
+          ],
+          "simplifiedFields": [
+            "createdAt",
+            "id",
+            "status",
+            "summary",
+            "title",
+            "type",
+            "updatedAt"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Provider not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsByProviderImport",
+      "method": "POST",
+      "path": "/v3/connections/{provider}/import",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "provider",
+          "inputName": "provider",
+          "sample": "notion",
+          "enum": [
+            "notion",
+            "google-drive",
+            "onedrive",
+            "gmail",
+            "github",
+            "web-crawler",
+            "s3",
+            "granola"
+          ],
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_123",
+              "project_123"
+            ],
+            "example": [
+              "user_123",
+              "project_123"
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {},
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsByProviderImport",
+        "method": "POST",
+        "path": "/v3/connections/{provider}/import",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/{{$parameter[\"provider\"]}}/import",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {},
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ConnectionsList",
+      "method": "POST",
+      "path": "/v3/connections/list",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_123",
+              "project_123"
+            ],
+            "example": [
+              "user_123",
+              "project_123"
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "containerTags",
+            "type": "array"
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "documentLimit",
+            "type": "number"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "expiresAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "lastSyncRun",
+            "type": "object"
+          },
+          {
+            "name": "metadata",
+            "type": "object"
+          },
+          {
+            "name": "provider",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "containerTags",
+          "createdAt",
+          "documentLimit",
+          "email",
+          "expiresAt",
+          "id",
+          "lastSyncRun",
+          "metadata",
+          "provider"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ConnectionsList",
+        "method": "POST",
+        "path": "/v3/connections/list",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/connections/list",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "containerTags",
+              "type": "array"
+            },
+            {
+              "name": "createdAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "documentLimit",
+              "type": "number"
+            },
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "expiresAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "lastSyncRun",
+              "type": "object"
+            },
+            {
+              "name": "metadata",
+              "type": "object"
+            },
+            {
+              "name": "provider",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "containerTags",
+            "createdAt",
+            "documentLimit",
+            "email",
+            "expiresAt",
+            "id",
+            "lastSyncRun",
+            "metadata",
+            "provider"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "deleteV3ContainerTagsByContainerTag",
+      "method": "DELETE",
+      "path": "/v3/container-tags/{containerTag}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "containerTag",
+          "inputName": "containerTag",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "containerTag",
+            "type": "string"
+          },
+          {
+            "name": "deletedDocumentsCount",
+            "type": "number"
+          },
+          {
+            "name": "deletedMemoriesCount",
+            "type": "number"
+          },
+          {
+            "name": "success",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "containerTag",
+          "deletedDocumentsCount",
+          "deletedMemoriesCount",
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "title": "Forbidden - only owners and admins can delete container tags"
+        },
+        {
+          "status": "404",
+          "title": "Container tag not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV3ContainerTagsByContainerTag",
+        "method": "DELETE",
+        "path": "/v3/container-tags/{containerTag}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v3/container-tags/{{$parameter[\"containerTag\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "containerTag",
+              "type": "string"
+            },
+            {
+              "name": "deletedDocumentsCount",
+              "type": "number"
+            },
+            {
+              "name": "deletedMemoriesCount",
+              "type": "number"
+            },
+            {
+              "name": "success",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "containerTag",
+            "deletedDocumentsCount",
+            "deletedMemoriesCount",
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "403",
+            "title": "Forbidden - only owners and admins can delete container tags"
+          },
+          {
+            "status": "404",
+            "title": "Container tag not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "patchV3ContainerTagsByContainerTag",
+      "method": "PATCH",
+      "path": "/v3/container-tags/{containerTag}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "containerTag",
+          "inputName": "containerTag",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "entityContext",
+            "inputName": "entityContext",
+            "sample": "This project contains research papers about machine learning.",
+            "example": "This project contains research papers about machine learning.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "memoryFilesystemPaths",
+            "inputName": "memoryFilesystemPaths",
+            "sample": [
+              "/memory/",
+              "/user.md"
+            ],
+            "example": [
+              "/memory/",
+              "/user.md"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "name",
+            "inputName": "name",
+            "sample": "Research Notes",
+            "example": "Research Notes",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "profileBuckets",
+            "inputName": "profileBuckets",
+            "sample": [
+              {
+                "key": "value-id"
+              }
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "containerTag",
+            "type": "string"
+          },
+          {
+            "name": "entityContext",
+            "type": "string"
+          },
+          {
+            "name": "memoryFilesystemPaths",
+            "type": "array"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "profileBuckets",
+            "type": "array"
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "format": "datetime"
+          }
+        ],
+        "simplifiedFields": [
+          "containerTag",
+          "entityContext",
+          "memoryFilesystemPaths",
+          "name",
+          "profileBuckets",
+          "updatedAt"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Container tag not found"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "patchV3ContainerTagsByContainerTag",
+        "method": "PATCH",
+        "path": "/v3/container-tags/{containerTag}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "PATCH",
+          "url": "=/v3/container-tags/{{$parameter[\"containerTag\"]}}",
+          "query": [],
+          "body": [
+            {
+              "name": "entityContext",
+              "source": "additionalFields"
+            },
+            {
+              "name": "memoryFilesystemPaths",
+              "source": "additionalFields"
+            },
+            {
+              "name": "name",
+              "source": "additionalFields"
+            },
+            {
+              "name": "profileBuckets",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "containerTag",
+              "type": "string"
+            },
+            {
+              "name": "entityContext",
+              "type": "string"
+            },
+            {
+              "name": "memoryFilesystemPaths",
+              "type": "array"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "profileBuckets",
+              "type": "array"
+            },
+            {
+              "name": "updatedAt",
+              "type": "string",
+              "format": "datetime"
+            }
+          ],
+          "simplifiedFields": [
+            "containerTag",
+            "entityContext",
+            "memoryFilesystemPaths",
+            "name",
+            "profileBuckets",
+            "updatedAt"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Container tag not found"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter memoryFilesystemPaths",
+          "advanced parameter profileBuckets"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3ContainerTagsMerge",
+      "method": "POST",
+      "path": "/v3/container-tags/merge",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": true
+          },
+          {
+            "name": "targetContainerTag",
+            "inputName": "targetContainerTag",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "mergeId",
+            "type": "string"
+          },
+          {
+            "name": "sourceTags",
+            "type": "array"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "success",
+            "type": "boolean"
+          },
+          {
+            "name": "targetTag",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "mergeId",
+          "sourceTags",
+          "status",
+          "success",
+          "targetTag"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request (e.g., invalid parameters)"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "title": "Forbidden - Only organization admins and owners can merge container tags"
+        },
+        {
+          "status": "404",
+          "title": "One or more container tags not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3ContainerTagsMerge",
+        "method": "POST",
+        "path": "/v3/container-tags/merge",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/container-tags/merge",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "parameter"
+            },
+            {
+              "name": "targetContainerTag",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "mergeId",
+              "type": "string"
+            },
+            {
+              "name": "sourceTags",
+              "type": "array"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            },
+            {
+              "name": "success",
+              "type": "boolean"
+            },
+            {
+              "name": "targetTag",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "mergeId",
+            "sourceTags",
+            "status",
+            "success",
+            "targetTag"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request (e.g., invalid parameters)"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "403",
+            "title": "Forbidden - Only organization admins and owners can merge container tags"
+          },
+          {
+            "status": "404",
+            "title": "One or more container tags not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "deleteV4Memories",
+      "method": "DELETE",
+      "path": "/v4/memories",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_123",
+            "example": "user_123",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "content",
+            "inputName": "content",
+            "sample": "John prefers dark mode",
+            "example": "John prefers dark mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "inputName": "id",
+            "sample": "mem_abc123",
+            "example": "mem_abc123",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "reason",
+            "inputName": "reason",
+            "sample": "outdated information",
+            "example": "outdated information",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "forgotten",
+            "type": "boolean"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "forgotten",
+          "id"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request - missing id or content"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Memory not found"
+        },
+        {
+          "status": "409",
+          "title": "Memory already forgotten"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV4Memories",
+        "method": "DELETE",
+        "path": "/v4/memories",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v4/memories",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            },
+            {
+              "name": "content",
+              "source": "additionalFields"
+            },
+            {
+              "name": "id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "reason",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "forgotten",
+              "type": "boolean"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "forgotten",
+            "id"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request - missing id or content"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Memory not found"
+          },
+          {
+            "status": "409",
+            "title": "Memory already forgotten"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "patchV4Memories",
+      "method": "PATCH",
+      "path": "/v4/memories",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_123",
+            "example": "user_123",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "content",
+            "inputName": "content",
+            "sample": "John prefers dark mode",
+            "example": "John prefers dark mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "forgetAfter",
+            "inputName": "forgetAfter",
+            "sample": "2026-06-01T00:00:00Z",
+            "example": "2026-06-01T00:00:00Z",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "forgetReason",
+            "inputName": "forgetReason",
+            "sample": "temporary project deadline",
+            "example": "temporary project deadline",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "inputName": "id",
+            "sample": "mem_abc123",
+            "example": "mem_abc123",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {},
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "newContent",
+            "inputName": "newContent",
+            "sample": "John now prefers light mode",
+            "example": "John now prefers light mode",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "temporalContext",
+            "inputName": "temporalContext",
+            "sample": {},
+            "type": "object",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "createdAt",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "forgetAfter",
+            "type": "string",
+            "format": "datetime"
+          },
+          {
+            "name": "forgetReason",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "memory",
+            "type": "string"
+          },
+          {
+            "name": "metadata",
+            "type": "object"
+          },
+          {
+            "name": "parentMemoryId",
+            "type": "string"
+          },
+          {
+            "name": "rootMemoryId",
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "createdAt",
+          "forgetAfter",
+          "forgetReason",
+          "id",
+          "memory",
+          "metadata",
+          "parentMemoryId",
+          "rootMemoryId",
+          "version"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request - missing required fields"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Memory not found"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "patchV4Memories",
+        "method": "PATCH",
+        "path": "/v4/memories",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "PATCH",
+          "url": "=/v4/memories",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            },
+            {
+              "name": "content",
+              "source": "additionalFields"
+            },
+            {
+              "name": "forgetAfter",
+              "source": "additionalFields"
+            },
+            {
+              "name": "forgetReason",
+              "source": "additionalFields"
+            },
+            {
+              "name": "id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "newContent",
+              "source": "parameter"
+            },
+            {
+              "name": "temporalContext",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "forgetAfter",
+              "type": "string",
+              "format": "datetime"
+            },
+            {
+              "name": "forgetReason",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "memory",
+              "type": "string"
+            },
+            {
+              "name": "metadata",
+              "type": "object"
+            },
+            {
+              "name": "parentMemoryId",
+              "type": "string"
+            },
+            {
+              "name": "rootMemoryId",
+              "type": "string"
+            },
+            {
+              "name": "version",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "createdAt",
+            "forgetAfter",
+            "forgetReason",
+            "id",
+            "memory",
+            "metadata",
+            "parentMemoryId",
+            "rootMemoryId",
+            "version"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request - missing required fields"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Memory not found"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter metadata",
+          "advanced parameter temporalContext"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4Memories",
+      "method": "POST",
+      "path": "/v4/memories",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_123",
+            "example": "user_123",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "memories",
+            "inputName": "memories",
+            "sample": [
+              {
+                "content": "John prefers dark mode"
+              }
+            ],
+            "type": "array",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "documentId",
+            "type": "string"
+          },
+          {
+            "name": "memories",
+            "type": "array"
+          }
+        ],
+        "simplifiedFields": [
+          "documentId",
+          "memories"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Space not found for the given containerTag"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4Memories",
+        "method": "POST",
+        "path": "/v4/memories",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/memories",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            },
+            {
+              "name": "memories",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "documentId",
+              "type": "string"
+            },
+            {
+              "name": "memories",
+              "type": "array"
+            }
+          ],
+          "simplifiedFields": [
+            "documentId",
+            "memories"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Space not found for the given containerTag"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter memories"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4MemoriesForgetMatching",
+      "method": "POST",
+      "path": "/v4/memories/forget-matching",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_123",
+            "example": "user_123",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "dryRun",
+            "inputName": "dryRun",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "ids",
+            "inputName": "ids",
+            "sample": [
+              "abc123",
+              "def456"
+            ],
+            "example": [
+              "abc123",
+              "def456"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "maxForget",
+            "inputName": "maxForget",
+            "sample": 100,
+            "default": 100,
+            "example": 100,
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "query",
+            "inputName": "query",
+            "sample": "forget everything about Project Titan",
+            "example": "forget everything about Project Titan",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "reason",
+            "inputName": "reason",
+            "sample": "project cancelled",
+            "example": "project cancelled",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "threshold",
+            "inputName": "threshold",
+            "sample": 0.5,
+            "default": 0.5,
+            "example": 0.5,
+            "type": "number",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "candidates",
+            "type": "array"
+          },
+          {
+            "name": "count",
+            "type": "number"
+          },
+          {
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "name": "forgetBatchId",
+            "type": "string"
+          },
+          {
+            "name": "forgotten",
+            "type": "array"
+          },
+          {
+            "name": "summary",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "candidates",
+          "count",
+          "dryRun",
+          "forgetBatchId",
+          "forgotten",
+          "summary"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4MemoriesForgetMatching",
+        "method": "POST",
+        "path": "/v4/memories/forget-matching",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/memories/forget-matching",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            },
+            {
+              "name": "dryRun",
+              "source": "additionalFields"
+            },
+            {
+              "name": "ids",
+              "source": "additionalFields"
+            },
+            {
+              "name": "maxForget",
+              "source": "additionalFields"
+            },
+            {
+              "name": "query",
+              "source": "additionalFields"
+            },
+            {
+              "name": "reason",
+              "source": "additionalFields"
+            },
+            {
+              "name": "threshold",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "candidates",
+              "type": "array"
+            },
+            {
+              "name": "count",
+              "type": "number"
+            },
+            {
+              "name": "dryRun",
+              "type": "boolean"
+            },
+            {
+              "name": "forgetBatchId",
+              "type": "string"
+            },
+            {
+              "name": "forgotten",
+              "type": "array"
+            },
+            {
+              "name": "summary",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "candidates",
+            "count",
+            "dryRun",
+            "forgetBatchId",
+            "forgotten",
+            "summary"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter ids"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4MemoriesList",
+      "method": "POST",
+      "path": "/v4/memories/list",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": true
+          },
+          {
+            "name": "filters",
+            "inputName": "filters",
+            "sample": {},
+            "type": "any",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "inputName": "limit",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": "123456"
+            },
+            "example": "10",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "order",
+            "inputName": "order",
+            "sample": "desc",
+            "default": "desc",
+            "example": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page",
+            "inputName": "page",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": "123456"
+            },
+            "example": "1",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "sort",
+            "inputName": "sort",
+            "sample": "createdAt",
+            "default": "createdAt",
+            "example": "createdAt",
+            "enum": [
+              "createdAt",
+              "updatedAt"
+            ],
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "memoryEntries",
+            "type": "array"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "memoryEntries",
+          "pagination"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request - containerTags are required"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4MemoriesList",
+        "method": "POST",
+        "path": "/v4/memories/list",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/memories/list",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "parameter"
+            },
+            {
+              "name": "filters",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            },
+            {
+              "name": "order",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "sort",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "memoryEntries",
+              "type": "array"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "memoryEntries",
+            "pagination"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request - containerTags are required"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter limit",
+          "advanced parameter page"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getV3DocumentsByIdChunks",
+      "method": "GET",
+      "path": "/v3/documents/{id}/chunks",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "inputName": "id",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "chunks",
+            "type": "array"
+          },
+          {
+            "name": "documentId",
+            "type": "string"
+          },
+          {
+            "name": "total",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "chunks",
+          "documentId",
+          "total"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Document not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getV3DocumentsByIdChunks",
+        "method": "GET",
+        "path": "/v3/documents/{id}/chunks",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "GET",
+          "url": "=/v3/documents/{{$parameter[\"id\"]}}/chunks",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "chunks",
+              "type": "array"
+            },
+            {
+              "name": "documentId",
+              "type": "string"
+            },
+            {
+              "name": "total",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "chunks",
+            "documentId",
+            "total"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Document not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getV3DocumentsByIdFileUrl",
+      "method": "GET",
+      "path": "/v3/documents/{id}/file-url",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "inputName": "id",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "url",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "url"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Document not found or has no file"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getV3DocumentsByIdFileUrl",
+        "method": "GET",
+        "path": "/v3/documents/{id}/file-url",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "GET",
+          "url": "=/v3/documents/{{$parameter[\"id\"]}}/file-url",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "url"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Document not found or has no file"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getV3DocumentsProcessing",
+      "method": "GET",
+      "path": "/v3/documents/processing",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "view",
+          "inputName": "view",
+          "sample": "all",
+          "default": "active",
+          "example": "all",
+          "enum": [
+            "active",
+            "pending",
+            "all"
+          ],
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "containerTags",
+          "inputName": "containerTags",
+          "sample": "user_123,sm_project_default",
+          "example": "user_123,sm_project_default",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": "1",
+          "example": "1",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": "50",
+          "example": "50",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "documents",
+            "type": "array"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "totalCount",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "documents",
+          "pagination",
+          "totalCount"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getV3DocumentsProcessing",
+        "method": "GET",
+        "path": "/v3/documents/processing",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "GET",
+          "url": "=/v3/documents/processing",
+          "query": [
+            {
+              "name": "view",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "documents",
+              "type": "array"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "totalCount",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "documents",
+            "pagination",
+            "totalCount"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3DocumentsList",
+      "method": "POST",
+      "path": "/v3/documents/list",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filters",
+            "inputName": "filters",
+            "sample": {},
+            "type": "any",
+            "required": false
+          },
+          {
+            "name": "includeContent",
+            "inputName": "includeContent",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "inputName": "limit",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": "123456"
+            },
+            "example": "10",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "order",
+            "inputName": "order",
+            "sample": "desc",
+            "default": "desc",
+            "example": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page",
+            "inputName": "page",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": "123456"
+            },
+            "example": "1",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "sort",
+            "inputName": "sort",
+            "sample": "createdAt",
+            "default": "createdAt",
+            "example": "createdAt",
+            "enum": [
+              "createdAt",
+              "updatedAt"
+            ],
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "memories",
+            "type": "array"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "memories",
+          "pagination"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3DocumentsList",
+        "method": "POST",
+        "path": "/v3/documents/list",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/documents/list",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filters",
+              "source": "additionalFields"
+            },
+            {
+              "name": "includeContent",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            },
+            {
+              "name": "order",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "sort",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "memories",
+              "type": "array"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "memories",
+            "pagination"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter limit",
+          "advanced parameter page"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3Search",
+      "method": "POST",
+      "path": "/v3/search",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "categoriesFilter",
+            "inputName": "categoriesFilter",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "chunkThreshold",
+            "inputName": "chunkThreshold",
+            "sample": 0.5,
+            "default": 0,
+            "example": 0.5,
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_alex",
+            "example": "user_alex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "docId",
+            "inputName": "docId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "documentThreshold",
+            "inputName": "documentThreshold",
+            "sample": 0,
+            "default": 0,
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filters",
+            "inputName": "filters",
+            "sample": {},
+            "type": "any",
+            "required": false
+          },
+          {
+            "name": "includeFullDocs",
+            "inputName": "includeFullDocs",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "includeSummary",
+            "inputName": "includeSummary",
+            "sample": false,
+            "default": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "inputName": "limit",
+            "sample": 10,
+            "default": 10,
+            "example": 10,
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "onlyMatchingChunks",
+            "inputName": "onlyMatchingChunks",
+            "sample": true,
+            "default": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "q",
+            "inputName": "q",
+            "sample": "what are the API rate limits",
+            "example": "what are the API rate limits",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "rerank",
+            "inputName": "rerank",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "rewriteQuery",
+            "inputName": "rewriteQuery",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "results",
+            "type": "array"
+          },
+          {
+            "name": "timing",
+            "type": "number"
+          },
+          {
+            "name": "total",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "results",
+          "timing",
+          "total"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request parameters"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "402",
+          "title": "Search quota or credits exhausted"
+        },
+        {
+          "status": "404",
+          "title": "Document not found"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3Search",
+        "method": "POST",
+        "path": "/v3/search",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/search",
+          "query": [],
+          "body": [
+            {
+              "name": "categoriesFilter",
+              "source": "additionalFields"
+            },
+            {
+              "name": "chunkThreshold",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "docId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documentThreshold",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filters",
+              "source": "additionalFields"
+            },
+            {
+              "name": "includeFullDocs",
+              "source": "additionalFields"
+            },
+            {
+              "name": "includeSummary",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            },
+            {
+              "name": "onlyMatchingChunks",
+              "source": "additionalFields"
+            },
+            {
+              "name": "q",
+              "source": "parameter"
+            },
+            {
+              "name": "rerank",
+              "source": "additionalFields"
+            },
+            {
+              "name": "rewriteQuery",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "results",
+              "type": "array"
+            },
+            {
+              "name": "timing",
+              "type": "number"
+            },
+            {
+              "name": "total",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "results",
+            "timing",
+            "total"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request parameters"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "402",
+            "title": "Search quota or credits exhausted"
+          },
+          {
+            "status": "404",
+            "title": "Document not found"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter categoriesFilter",
+          "advanced parameter containerTags"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "deleteV3DocumentsBulk",
+      "method": "DELETE",
+      "path": "/v3/documents/bulk",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "ids",
+            "inputName": "ids",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "containerTags",
+            "type": "array"
+          },
+          {
+            "name": "deletedCount",
+            "type": "number"
+          },
+          {
+            "name": "errors",
+            "type": "array"
+          },
+          {
+            "name": "success",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "containerTags",
+          "deletedCount",
+          "errors",
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request - either 'ids' or 'containerTags' must be provided"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV3DocumentsBulk",
+        "method": "DELETE",
+        "path": "/v3/documents/bulk",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v3/documents/bulk",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "ids",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "containerTags",
+              "type": "array"
+            },
+            {
+              "name": "deletedCount",
+              "type": "number"
+            },
+            {
+              "name": "errors",
+              "type": "array"
+            },
+            {
+              "name": "success",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "containerTags",
+            "deletedCount",
+            "errors",
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request - either 'ids' or 'containerTags' must be provided"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter ids"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "deleteV3DocumentsById",
+      "method": "DELETE",
+      "path": "/v3/documents/{id}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "inputName": "id",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {},
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Document not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "deleteV3DocumentsById",
+        "method": "DELETE",
+        "path": "/v3/documents/{id}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "DELETE",
+          "url": "=/v3/documents/{{$parameter[\"id\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {},
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Document not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "patchV3DocumentsById",
+      "method": "PATCH",
+      "path": "/v3/documents/{id}",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "inputName": "id",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_alex",
+            "example": "user_alex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "content",
+            "inputName": "content",
+            "sample": "Our API rate limits are 100 req/min on free and 1000 on pro. Clients should use exponential backoff on 429s.",
+            "example": "Our API rate limits are 100 req/min on free and 1000 on pro. Clients should use exponential backoff on 429s.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "customId",
+            "inputName": "customId",
+            "sample": "doc-api-rate-limits",
+            "example": "doc-api-rate-limits",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "documentDate",
+            "inputName": "documentDate",
+            "sample": "2025-03-14",
+            "example": "2025-03-14",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "/documents/reports/file.pdf",
+            "example": "/documents/reports/file.pdf",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filterByMetadata",
+            "inputName": "filterByMetadata",
+            "sample": {
+              "department": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              },
+              "region": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              }
+            },
+            "example": {
+              "department": "engineering",
+              "region": "us"
+            },
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {
+              "language": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              },
+              "source": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              }
+            },
+            "example": {
+              "language": "en",
+              "source": "upload"
+            },
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "taskType",
+            "inputName": "taskType",
+            "sample": "memory",
+            "example": "memory",
+            "enum": [
+              "memory",
+              "superrag"
+            ],
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id",
+          "status"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "404",
+          "title": "Document not found"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "patchV3DocumentsById",
+        "method": "PATCH",
+        "path": "/v3/documents/{id}",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "PATCH",
+          "url": "=/v3/documents/{{$parameter[\"id\"]}}",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "content",
+              "source": "additionalFields"
+            },
+            {
+              "name": "customId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documentDate",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filterByMetadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "taskType",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id",
+            "status"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "404",
+            "title": "Document not found"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter filterByMetadata",
+          "advanced parameter metadata"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3Documents",
+      "method": "POST",
+      "path": "/v3/documents",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "content",
+            "inputName": "content",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "customId",
+            "inputName": "customId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "documentDate",
+            "inputName": "documentDate",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dreaming",
+            "inputName": "dreaming",
+            "sample": "instant",
+            "enum": [
+              "instant",
+              "dynamic"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "entityContext",
+            "inputName": "entityContext",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filterByMetadata",
+            "inputName": "filterByMetadata",
+            "sample": {},
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {},
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "taskType",
+            "inputName": "taskType",
+            "sample": "memory",
+            "enum": [
+              "memory",
+              "superrag"
+            ],
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id",
+          "status"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3Documents",
+        "method": "POST",
+        "path": "/v3/documents",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/documents",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "content",
+              "source": "parameter"
+            },
+            {
+              "name": "customId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documentDate",
+              "source": "additionalFields"
+            },
+            {
+              "name": "dreaming",
+              "source": "additionalFields"
+            },
+            {
+              "name": "entityContext",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filterByMetadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "taskType",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id",
+            "status"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter filterByMetadata",
+          "advanced parameter metadata"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3DocumentsBatch",
+      "method": "POST",
+      "path": "/v3/documents/batch",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_alex",
+            "example": "user_alex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "content",
+            "inputName": "content",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "documentDate",
+            "inputName": "documentDate",
+            "sample": "2025-03-14",
+            "example": "2025-03-14",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "documents",
+            "inputName": "documents",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": [
+                {
+                  "content": "Our API rate limits are 100 req/min on free and 1000 on pro. Clients should use exponential backoff on 429s."
+                }
+              ]
+            },
+            "type": "alternative",
+            "required": true
+          },
+          {
+            "name": "dreaming",
+            "inputName": "dreaming",
+            "sample": "instant",
+            "example": "instant",
+            "enum": [
+              "instant",
+              "dynamic"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "entityContext",
+            "inputName": "entityContext",
+            "sample": "User's name is {XYZ}",
+            "example": "User's name is {XYZ}",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "/documents/reports/file.pdf",
+            "example": "/documents/reports/file.pdf",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filterByMetadata",
+            "inputName": "filterByMetadata",
+            "sample": {
+              "department": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              },
+              "region": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              }
+            },
+            "example": {
+              "department": "engineering",
+              "region": "us"
+            },
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {
+              "language": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              },
+              "source": {
+                "schemaAlternative": "alternative1",
+                "value": "value/id"
+              }
+            },
+            "example": {
+              "language": "en",
+              "source": "upload"
+            },
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "taskType",
+            "inputName": "taskType",
+            "sample": "memory",
+            "example": "memory",
+            "enum": [
+              "memory",
+              "superrag"
+            ],
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "failed",
+            "type": "number"
+          },
+          {
+            "name": "results",
+            "type": "array"
+          },
+          {
+            "name": "success",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "failed",
+          "results",
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "402",
+          "title": "Document token limit reached"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3DocumentsBatch",
+        "method": "POST",
+        "path": "/v3/documents/batch",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/documents/batch",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "content",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documentDate",
+              "source": "additionalFields"
+            },
+            {
+              "name": "documents",
+              "source": "parameter"
+            },
+            {
+              "name": "dreaming",
+              "source": "additionalFields"
+            },
+            {
+              "name": "entityContext",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filterByMetadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "taskType",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "failed",
+              "type": "number"
+            },
+            {
+              "name": "results",
+              "type": "array"
+            },
+            {
+              "name": "success",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "failed",
+            "results",
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "402",
+            "title": "Document token limit reached"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter documents",
+          "advanced parameter filterByMetadata",
+          "advanced parameter metadata"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3DocumentsFile",
+      "method": "POST",
+      "path": "/v3/documents/file",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "multipart/form-data",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_alex",
+            "example": "user_alex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "customId",
+            "inputName": "customId",
+            "sample": "mem_abc123",
+            "example": "mem_abc123",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dreaming",
+            "inputName": "dreaming",
+            "sample": "instant",
+            "example": "instant",
+            "enum": [
+              "instant",
+              "dynamic"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "entityContext",
+            "inputName": "entityContext",
+            "sample": "User's name is {XYZ}",
+            "example": "User's name is {XYZ}",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "file",
+            "inputName": "file",
+            "sample": "file-content",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "fileType",
+            "inputName": "fileType",
+            "sample": "image",
+            "example": "image",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "/documents/reports/file.pdf",
+            "example": "/documents/reports/file.pdf",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filterByMetadata",
+            "inputName": "filterByMetadata",
+            "sample": "{\"department\": \"engineering\"}",
+            "example": "{\"department\": \"engineering\"}",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": "{\"category\": \"technology\", \"isPublic\": true, \"readingTime\": 5}",
+            "example": "{\"category\": \"technology\", \"isPublic\": true, \"readingTime\": 5}",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "mimeType",
+            "inputName": "mimeType",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "taskType",
+            "inputName": "taskType",
+            "sample": "memory",
+            "example": "memory",
+            "enum": [
+              "memory",
+              "superrag"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "useAdvancedProcessing",
+            "inputName": "useAdvancedProcessing",
+            "sample": "true",
+            "example": "true",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id",
+          "status"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3DocumentsFile",
+        "method": "POST",
+        "path": "/v3/documents/file",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/documents/file",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "customId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "dreaming",
+              "source": "additionalFields"
+            },
+            {
+              "name": "entityContext",
+              "source": "additionalFields"
+            },
+            {
+              "name": "file",
+              "source": "parameter"
+            },
+            {
+              "name": "fileType",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filterByMetadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            },
+            {
+              "name": "mimeType",
+              "source": "additionalFields"
+            },
+            {
+              "name": "taskType",
+              "source": "additionalFields"
+            },
+            {
+              "name": "useAdvancedProcessing",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id",
+            "status"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "non-json request content"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4Conversations",
+      "method": "POST",
+      "path": "/v4/conversations",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "value-id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "conversationId",
+            "inputName": "conversationId",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "messages",
+            "inputName": "messages",
+            "sample": [
+              {
+                "content": {
+                  "schemaAlternative": "alternative1",
+                  "value": "value/id"
+                },
+                "role": "user"
+              }
+            ],
+            "type": "array",
+            "required": true
+          },
+          {
+            "name": "metadata",
+            "inputName": "metadata",
+            "sample": {},
+            "type": "object",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "conversationId",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "conversationId",
+          "id",
+          "status"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request parameters"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "402",
+          "title": "Quota exceeded"
+        },
+        {
+          "status": "409",
+          "title": "A container tag merge is in progress"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4Conversations",
+        "method": "POST",
+        "path": "/v4/conversations",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/conversations",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "conversationId",
+              "source": "parameter"
+            },
+            {
+              "name": "messages",
+              "source": "parameter"
+            },
+            {
+              "name": "metadata",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "conversationId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "conversationId",
+            "id",
+            "status"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request parameters"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "402",
+            "title": "Quota exceeded"
+          },
+          {
+            "status": "409",
+            "title": "A container tag merge is in progress"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter messages",
+          "advanced parameter metadata"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4Profile",
+      "method": "POST",
+      "path": "/v4/profile",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "buckets",
+            "inputName": "buckets",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "value-id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "filters",
+            "inputName": "filters",
+            "sample": {},
+            "type": "any",
+            "required": false
+          },
+          {
+            "name": "include",
+            "inputName": "include",
+            "sample": [
+              "static"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "q",
+            "inputName": "q",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "threshold",
+            "inputName": "threshold",
+            "sample": 1,
+            "type": "number",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "profile",
+            "type": "object"
+          },
+          {
+            "name": "searchResults",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "profile",
+          "searchResults"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request parameters"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "402",
+          "title": "Search quota or credits exhausted (when search query is provided)"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4Profile",
+        "method": "POST",
+        "path": "/v4/profile",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/profile",
+          "query": [],
+          "body": [
+            {
+              "name": "buckets",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            },
+            {
+              "name": "filters",
+              "source": "additionalFields"
+            },
+            {
+              "name": "include",
+              "source": "additionalFields"
+            },
+            {
+              "name": "q",
+              "source": "additionalFields"
+            },
+            {
+              "name": "threshold",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "profile",
+              "type": "object"
+            },
+            {
+              "name": "searchResults",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "profile",
+            "searchResults"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request parameters"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "402",
+            "title": "Search quota or credits exhausted (when search query is provided)"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter buckets",
+          "advanced parameter include"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4ProfileBuckets",
+      "method": "POST",
+      "path": "/v4/profile/buckets",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "buckets",
+            "type": "array"
+          }
+        ],
+        "simplifiedFields": [
+          "buckets"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4ProfileBuckets",
+        "method": "POST",
+        "path": "/v4/profile/buckets",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/profile/buckets",
+          "query": [],
+          "body": [
+            {
+              "name": "containerTag",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "buckets",
+              "type": "array"
+            }
+          ],
+          "simplifiedFields": [
+            "buckets"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV4Search",
+      "method": "POST",
+      "path": "/v4/search",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "aggregate",
+            "inputName": "aggregate",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "containerTag",
+            "inputName": "containerTag",
+            "sample": "user_alex",
+            "example": "user_alex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "containerTags",
+            "inputName": "containerTags",
+            "sample": [
+              "user_alex"
+            ],
+            "example": [
+              "user_alex"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "filepath",
+            "inputName": "filepath",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "filters",
+            "inputName": "filters",
+            "sample": {},
+            "type": "any",
+            "required": false
+          },
+          {
+            "name": "include",
+            "inputName": "include",
+            "sample": {
+              "chunks": false,
+              "documents": false,
+              "forgottenMemories": false,
+              "relatedMemories": false,
+              "summaries": false
+            },
+            "default": {
+              "chunks": false,
+              "documents": false,
+              "forgottenMemories": false,
+              "relatedMemories": false,
+              "summaries": false
+            },
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "inputName": "limit",
+            "sample": 10,
+            "default": 10,
+            "example": 10,
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "q",
+            "inputName": "q",
+            "sample": "what are the API rate limits",
+            "example": "what are the API rate limits",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "rerank",
+            "inputName": "rerank",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "rewriteQuery",
+            "inputName": "rewriteQuery",
+            "sample": false,
+            "default": false,
+            "example": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "searchMode",
+            "inputName": "searchMode",
+            "sample": "memories",
+            "default": "memories",
+            "example": "memories",
+            "enum": [
+              "memories",
+              "hybrid",
+              "documents"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "threshold",
+            "inputName": "threshold",
+            "sample": 0.5,
+            "default": 0.6,
+            "example": 0.5,
+            "type": "number",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "results",
+            "type": "array"
+          },
+          {
+            "name": "timing",
+            "type": "number"
+          },
+          {
+            "name": "total",
+            "type": "number"
+          }
+        ],
+        "simplifiedFields": [
+          "results",
+          "timing",
+          "total"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Invalid request parameters"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "402",
+          "title": "Search quota or credits exhausted"
+        },
+        {
+          "status": "500",
+          "title": "Server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV4Search",
+        "method": "POST",
+        "path": "/v4/search",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v4/search",
+          "query": [],
+          "body": [
+            {
+              "name": "aggregate",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "containerTags",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filepath",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filters",
+              "source": "additionalFields"
+            },
+            {
+              "name": "include",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            },
+            {
+              "name": "q",
+              "source": "parameter"
+            },
+            {
+              "name": "rerank",
+              "source": "additionalFields"
+            },
+            {
+              "name": "rewriteQuery",
+              "source": "additionalFields"
+            },
+            {
+              "name": "searchMode",
+              "source": "additionalFields"
+            },
+            {
+              "name": "threshold",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "results",
+              "type": "array"
+            },
+            {
+              "name": "timing",
+              "type": "number"
+            },
+            {
+              "name": "total",
+              "type": "number"
+            }
+          ],
+          "simplifiedFields": [
+            "results",
+            "timing",
+            "total"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Invalid request parameters"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "402",
+            "title": "Search quota or credits exhausted"
+          },
+          {
+            "status": "500",
+            "title": "Server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter containerTags",
+          "advanced parameter include"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getV3Settings",
+      "method": "GET",
+      "path": "/v3/settings",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "chunkSize",
+            "type": "integer"
+          },
+          {
+            "name": "excludeItems",
+            "type": "alternative"
+          },
+          {
+            "name": "filterPrompt",
+            "type": "string"
+          },
+          {
+            "name": "githubClientId",
+            "type": "string"
+          },
+          {
+            "name": "githubClientSecret",
+            "type": "string"
+          },
+          {
+            "name": "githubCustomKeyEnabled",
+            "type": "boolean"
+          },
+          {
+            "name": "googleDriveClientId",
+            "type": "string"
+          },
+          {
+            "name": "googleDriveClientSecret",
+            "type": "string"
+          },
+          {
+            "name": "googleDriveCustomKeyEnabled",
+            "type": "boolean"
+          },
+          {
+            "name": "includeItems",
+            "type": "alternative"
+          },
+          {
+            "name": "notionClientId",
+            "type": "string"
+          },
+          {
+            "name": "notionClientSecret",
+            "type": "string"
+          },
+          {
+            "name": "notionCustomKeyEnabled",
+            "type": "boolean"
+          },
+          {
+            "name": "onedriveClientId",
+            "type": "string"
+          },
+          {
+            "name": "onedriveClientSecret",
+            "type": "string"
+          },
+          {
+            "name": "onedriveCustomKeyEnabled",
+            "type": "boolean"
+          },
+          {
+            "name": "profileBuckets",
+            "type": "array"
+          },
+          {
+            "name": "shouldLLMFilter",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "chunkSize",
+          "excludeItems",
+          "filterPrompt",
+          "githubClientId",
+          "githubClientSecret",
+          "githubCustomKeyEnabled",
+          "googleDriveClientId",
+          "googleDriveClientSecret",
+          "googleDriveCustomKeyEnabled",
+          "includeItems"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getV3Settings",
+        "method": "GET",
+        "path": "/v3/settings",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "GET",
+          "url": "=/v3/settings",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "chunkSize",
+              "type": "integer"
+            },
+            {
+              "name": "excludeItems",
+              "type": "alternative"
+            },
+            {
+              "name": "filterPrompt",
+              "type": "string"
+            },
+            {
+              "name": "githubClientId",
+              "type": "string"
+            },
+            {
+              "name": "githubClientSecret",
+              "type": "string"
+            },
+            {
+              "name": "githubCustomKeyEnabled",
+              "type": "boolean"
+            },
+            {
+              "name": "googleDriveClientId",
+              "type": "string"
+            },
+            {
+              "name": "googleDriveClientSecret",
+              "type": "string"
+            },
+            {
+              "name": "googleDriveCustomKeyEnabled",
+              "type": "boolean"
+            },
+            {
+              "name": "includeItems",
+              "type": "alternative"
+            },
+            {
+              "name": "notionClientId",
+              "type": "string"
+            },
+            {
+              "name": "notionClientSecret",
+              "type": "string"
+            },
+            {
+              "name": "notionCustomKeyEnabled",
+              "type": "boolean"
+            },
+            {
+              "name": "onedriveClientId",
+              "type": "string"
+            },
+            {
+              "name": "onedriveClientSecret",
+              "type": "string"
+            },
+            {
+              "name": "onedriveCustomKeyEnabled",
+              "type": "boolean"
+            },
+            {
+              "name": "profileBuckets",
+              "type": "array"
+            },
+            {
+              "name": "shouldLLMFilter",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "chunkSize",
+            "excludeItems",
+            "filterPrompt",
+            "githubClientId",
+            "githubClientSecret",
+            "githubCustomKeyEnabled",
+            "googleDriveClientId",
+            "googleDriveClientSecret",
+            "googleDriveCustomKeyEnabled",
+            "includeItems"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "patchV3Settings",
+      "method": "PATCH",
+      "path": "/v3/settings",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "chunkSize",
+            "inputName": "chunkSize",
+            "sample": 2,
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "excludeItems",
+            "inputName": "excludeItems",
+            "sample": "value/id",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "filterPrompt",
+            "inputName": "filterPrompt",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "githubClientId",
+            "inputName": "githubClientId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "githubClientSecret",
+            "inputName": "githubClientSecret",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "githubCustomKeyEnabled",
+            "inputName": "githubCustomKeyEnabled",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "googleDriveClientId",
+            "inputName": "googleDriveClientId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "googleDriveClientSecret",
+            "inputName": "googleDriveClientSecret",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "googleDriveCustomKeyEnabled",
+            "inputName": "googleDriveCustomKeyEnabled",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "includeItems",
+            "inputName": "includeItems",
+            "sample": "value/id",
+            "type": "alternative",
+            "required": false
+          },
+          {
+            "name": "notionClientId",
+            "inputName": "notionClientId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "notionClientSecret",
+            "inputName": "notionClientSecret",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "notionCustomKeyEnabled",
+            "inputName": "notionCustomKeyEnabled",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "onedriveClientId",
+            "inputName": "onedriveClientId",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "onedriveClientSecret",
+            "inputName": "onedriveClientSecret",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "onedriveCustomKeyEnabled",
+            "inputName": "onedriveCustomKeyEnabled",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "profileBuckets",
+            "inputName": "profileBuckets",
+            "sample": [
+              {
+                "key": "value-id"
+              }
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "shouldLLMFilter",
+            "inputName": "shouldLLMFilter",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "orgId",
+            "type": "string"
+          },
+          {
+            "name": "orgSlug",
+            "type": "string"
+          },
+          {
+            "name": "updated",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "orgId",
+          "orgSlug",
+          "updated"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "patchV3Settings",
+        "method": "PATCH",
+        "path": "/v3/settings",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "PATCH",
+          "url": "=/v3/settings",
+          "query": [],
+          "body": [
+            {
+              "name": "chunkSize",
+              "source": "additionalFields"
+            },
+            {
+              "name": "excludeItems",
+              "source": "additionalFields"
+            },
+            {
+              "name": "filterPrompt",
+              "source": "additionalFields"
+            },
+            {
+              "name": "githubClientId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "githubClientSecret",
+              "source": "additionalFields"
+            },
+            {
+              "name": "githubCustomKeyEnabled",
+              "source": "additionalFields"
+            },
+            {
+              "name": "googleDriveClientId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "googleDriveClientSecret",
+              "source": "additionalFields"
+            },
+            {
+              "name": "googleDriveCustomKeyEnabled",
+              "source": "additionalFields"
+            },
+            {
+              "name": "includeItems",
+              "source": "additionalFields"
+            },
+            {
+              "name": "notionClientId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "notionClientSecret",
+              "source": "additionalFields"
+            },
+            {
+              "name": "notionCustomKeyEnabled",
+              "source": "additionalFields"
+            },
+            {
+              "name": "onedriveClientId",
+              "source": "additionalFields"
+            },
+            {
+              "name": "onedriveClientSecret",
+              "source": "additionalFields"
+            },
+            {
+              "name": "onedriveCustomKeyEnabled",
+              "source": "additionalFields"
+            },
+            {
+              "name": "profileBuckets",
+              "source": "additionalFields"
+            },
+            {
+              "name": "shouldLLMFilter",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "orgId",
+              "type": "string"
+            },
+            {
+              "name": "orgSlug",
+              "type": "string"
+            },
+            {
+              "name": "updated",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "orgId",
+            "orgSlug",
+            "updated"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter profileBuckets"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3SettingsReset",
+      "method": "POST",
+      "path": "/v3/settings/reset",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "confirmation",
+            "inputName": "confirmation",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "clearedDefaultSpaceContext",
+            "type": "boolean"
+          },
+          {
+            "name": "deletedConnections",
+            "type": "number"
+          },
+          {
+            "name": "deletedDocumentBatches",
+            "type": "number"
+          },
+          {
+            "name": "deletedDocumentsApprox",
+            "type": "number"
+          },
+          {
+            "name": "deletedExtraSpaces",
+            "type": "number"
+          },
+          {
+            "name": "deletedMemoryRows",
+            "type": "number"
+          },
+          {
+            "name": "settingsReset",
+            "type": "boolean"
+          },
+          {
+            "name": "success",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "clearedDefaultSpaceContext",
+          "deletedConnections",
+          "deletedDocumentBatches",
+          "deletedDocumentsApprox",
+          "deletedExtraSpaces",
+          "deletedMemoryRows",
+          "settingsReset",
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "title": "Forbidden"
+        },
+        {
+          "status": "500",
+          "title": "Internal server error"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3SettingsReset",
+        "method": "POST",
+        "path": "/v3/settings/reset",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/settings/reset",
+          "query": [],
+          "body": [
+            {
+              "name": "confirmation",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "clearedDefaultSpaceContext",
+              "type": "boolean"
+            },
+            {
+              "name": "deletedConnections",
+              "type": "number"
+            },
+            {
+              "name": "deletedDocumentBatches",
+              "type": "number"
+            },
+            {
+              "name": "deletedDocumentsApprox",
+              "type": "number"
+            },
+            {
+              "name": "deletedExtraSpaces",
+              "type": "number"
+            },
+            {
+              "name": "deletedMemoryRows",
+              "type": "number"
+            },
+            {
+              "name": "settingsReset",
+              "type": "boolean"
+            },
+            {
+              "name": "success",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "clearedDefaultSpaceContext",
+            "deletedConnections",
+            "deletedDocumentBatches",
+            "deletedDocumentsApprox",
+            "deletedExtraSpaces",
+            "deletedMemoryRows",
+            "settingsReset",
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          },
+          {
+            "status": "403",
+            "title": "Forbidden"
+          },
+          {
+            "status": "500",
+            "title": "Internal server error"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "postV3SettingsSuggestBuckets",
+      "method": "POST",
+      "path": "/v3/settings/suggest-buckets",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "suggestions",
+            "type": "array"
+          }
+        ],
+        "simplifiedFields": [
+          "suggestions"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "No context available"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "postV3SettingsSuggestBuckets",
+        "method": "POST",
+        "path": "/v3/settings/suggest-buckets",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "POST",
+          "url": "=/v3/settings/suggest-buckets",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "suggestions",
+              "type": "array"
+            }
+          ],
+          "simplifiedFields": [
+            "suggestions"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "No context available"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "patchV3SettingsSecurity",
+      "method": "PATCH",
+      "path": "/v3/settings/security",
+      "serverId": "documentServer1HttpsApiSupermemoryAi",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "requireTwoFactor",
+            "inputName": "requireTwoFactor",
+            "sample": true,
+            "type": "boolean",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {},
+      "errors": [],
+      "requestPlan": {
+        "operationId": "patchV3SettingsSecurity",
+        "method": "PATCH",
+        "path": "/v3/settings/security",
+        "serverId": "documentServer1HttpsApiSupermemoryAi",
+        "request": {
+          "method": "PATCH",
+          "url": "=/v3/settings/security",
+          "query": [],
+          "body": [
+            {
+              "name": "requireTwoFactor",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {},
+        "errors": [],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    }
+  ],
+  "triggerFixtures": [
+    {
+      "operationId": "getV3ConnectionsByConnectionId",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getV3ConnectionsByConnectionId",
+        "cursorParameter": "createdAt",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getV3ContainerTagsByContainerTag",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getV3ContainerTagsByContainerTag",
+        "cursorParameter": "updatedAt",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getV3ContainerTagsList",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getV3ContainerTagsList",
+        "cursorParameter": "updatedAt",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getV3ContainerTagsMergeByMergeId",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getV3ContainerTagsMergeByMergeId",
+        "cursorParameter": "id",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getV3DocumentsById",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getV3DocumentsById",
+        "cursorParameter": "updatedAt",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    }
+  ]
+}
