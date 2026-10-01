@@ -1,5 +1,6 @@
 {
   "author": {
+    "email": "work.bhshekhaliya@gmail.com",
     "name": "nativeship",
     "url": "https://github.com/nativeship"
   },
@@ -22,11 +23,6 @@
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "maintainers": [
-    {
-      "name": "nativeship"
-    }
-  ],
   "n8n": {
     "credentials": [
       "dist/credentials/SupermemoryApi.credentials.js"
@@ -39,7 +35,7 @@
   },
   "name": "@nativeship/n8n-nodes-supermemory",
   "nativeShip": {
-    "artifactSha256": "f694130d9783710c6606e6defaf09be08908ada292c37b7fe77905209a939417"
+    "artifactSha256": "43ecd8d7b9eaaa9510b16091db1c6ad0baa68dee7b59463f895cb7f5195afa24"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
@@ -57,5 +53,5 @@
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix"
   },
-  "version": "1.0.1"
+  "version": "1.0.2"
 }

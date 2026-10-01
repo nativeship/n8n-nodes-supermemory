@@ -8146,7 +8146,7 @@
           "path": "/v3/settings"
         },
         "displayName": "Update settings",
-        "description": "Update settings for an organization",
+        "description": "Update settings for an organization.",
         "hidden": false,
         "resource": "settings"
       },
@@ -8157,6 +8157,7 @@
           "path": "/v3/settings/security"
         },
         "displayName": "Patch V3 Settings Security",
+        "description": "Sets whether two-factor authentication is required for the organization.",
         "hidden": false,
         "removed": true,
         "resource": "v3"

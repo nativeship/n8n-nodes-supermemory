@@ -2,7 +2,7 @@
   "dependencyLockSha256": "c117fa2ca55b50f164d9976156638d380ba63dda97e096e7e2a1738e1e7cea93",
   "generator": "native-ship/hybrid-go-ts-morph",
   "generatorVersion": "1.4.0",
-  "irSha256": "8b131ba523d722f1e7117740f4e86bd86482ab750a0deb3d9fd54908bdd011d3",
+  "irSha256": "b952417ebcb1d90a5a51b7c201006e04599531ab5bd07e8134da7759b9bcaed1",
   "packageName": "@nativeship/n8n-nodes-supermemory",
   "runtime": "bun@1.3.14",
   "schemaVersion": 2,
